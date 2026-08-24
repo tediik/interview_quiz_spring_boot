@@ -28,6 +28,9 @@ public class Student {
     @Column(name = "student_passed_exams")
     private Integer passedExams;
 
+    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<ExaminationResult> results = new ArrayList<>();
+
     public boolean isAllExamsPassed(Integer totalExams, Integer passedExams) {
         if (totalExams == passedExams) {
             return true;
@@ -74,5 +77,17 @@ public class Student {
 
     public void setPassedExams(Integer passedExams) {
         this.passedExams = passedExams;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", phoneNumber=" + phoneNumber +
+                ", course=" + course +
+                ", passedExams=" + passedExams +
+                ", results=" + results +
+                '}';
     }
 }
