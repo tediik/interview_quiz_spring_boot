@@ -19,6 +19,9 @@ public class Student {
     @Column(name = "phone_number")
     public Integer phoneNumber;
 
+    @Column(name = "student_email")
+    public String email;
+
     @Column(name = "student_course")
     public Integer course;
 
