@@ -45,7 +45,7 @@ public class StudentController {
     }
 
     @PutMapping("/create")
-    public void create(Student student) {
+    public void create(@Valid Student student) {
         studRepo.save(student);
     }
 
